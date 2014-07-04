@@ -8,4 +8,4 @@ DZE_SUICIDE_WEAPONS = ["M9","M9SD","Makarov","MakarovSD","Sa61_EP1","UZI_EP1","U
 DZE_SUICIDE_REQUIRE_BULLET = true;
 
 /* this is how long the player has to cancel the suicide */
-DZE_SUICIDE_CANCEL_TIME = 6;
+DZE_SUICIDE_CANCEL_TIME = 0;
