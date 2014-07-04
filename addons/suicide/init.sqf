@@ -1,5 +1,5 @@
 call compile preprocessFileLineNumbers "addons\suicide\config.sqf";
-DZE_SUICIDE_VERSION = "1.0.0";
+DZE_SUICIDE_VERSION = "1.1.0";
 // only run if enabled or server
 if (isServer || !DZE_SUICIDE_ADDON_ENABLE) exitWith {};
 diag_log text format["SUICIDE v%1: initializing...",DZE_SUICIDE_VERSION];

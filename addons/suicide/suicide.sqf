@@ -46,6 +46,7 @@ if(DZE_SUICIDE_CANCEL_TIME > 0) then {
 if (_exitWith == "nil") then {
     _exitWith = "Goodbye!";
     taskHint[_exitWith, DZE_COLOR_SUCCESS, "taskDone"];
+    hint _exitWith;
     cutText[_exitWith,"PLAIN DOWN"];
     player playmove (["ActsPercMstpSnonWpstDnon_suicide1B","ActsPercMstpSnonWpstDnon_suicide2B"] call BIS_fnc_selectRandom);
     sleep 7.5;
