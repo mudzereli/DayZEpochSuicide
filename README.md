@@ -19,7 +19,15 @@ For some samples of what it can do, check out this gallery on imgur:
  1. extract the **addons** and **overwrites** folder from the downloaded zip file into your mission file root
  2. add this line to the end of your mission file init.sqf.
    * ```call compile preprocessFileLineNumbers "addons\suicide\init.sqf";```
- 3. edit "addons\suicide\config.sqf" to change some options or add different deployables
+ 3. edit "addons\suicide\config.sqf" to configure some options such as what guns it works with etc.
+
+ -----
+
+ **warning**: if you also use my deployable bike script and have this line in your mission file's init.sqf:
+
+ ```call compile preprocessFileLineNumbers "overwrites\click_actions\init.sqf";```
+
+ then you need to ![update the files](https://github.com/mudzereli/DayZEpochDeployableBike/archive/master.zip) for that addon and remove the above line from your config.
 
 -----
 
