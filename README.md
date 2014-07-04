@@ -11,7 +11,7 @@ It's configurable, cancellable, triggered outside of the scroll menu, and it pla
 
 For some samples of what it can do, check out this gallery on imgur:
 
-**images coming soon...**
+http://imgur.com/a/Pt0lM
 
 -----
 
