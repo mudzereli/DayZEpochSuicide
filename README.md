@@ -7,7 +7,7 @@
 
 Out of the box, it adds a right click action to most pistols in the game that allows you to commit suicide.
 
-It's configurable, cancellable, triggered outside of the scroll menu, and it plays randomly one of 2 animations :)
+It's configurable, triggered from right click instead of scroll menu, and it plays randomly one of 2 animations :)
 
 For some samples of what it can do, check out this gallery on imgur:
 
@@ -32,5 +32,5 @@ http://imgur.com/a/Pt0lM
 -----
 
 ##Change Log
-* 1.1.0 - better message handling when cancel time is 0 (instant suicide)
+* 1.1.0 - better message handling when cancel time is 0 (instant suicide) / change default cancel time to 0
 * 1.0.0 - release
