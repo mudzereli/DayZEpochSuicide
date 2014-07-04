@@ -1,11 +1,8 @@
-private ["_position","_done","_timeLeft","_exitWith","_warning","_weapon"];
+private ["_position","_done","_timeLeft","_exitWith","_warning","_weapon","_display"];
 
 // initialize variables
 _exitWith = "nil";
-_done = false;
-_position = position player;
-_timeLeft = DZE_SUICIDE_CANCEL_TIME;
-_warning = "You will commit suicide in %1 seconds. Move to cancel!";
+_weapon = (currentWeapon player);
 
 // close the gear display when player starts to commit suicide
 disableSerialization;
@@ -14,27 +11,34 @@ if(!(isNull _display)) then {
     _display closeDisplay 0;
 };
 
-// make sure the player really knows they are about to die
-hint format[_warning,_timeLeft];
-taskHint [format[_warning,_timeLeft], DZE_COLOR_DANGER, "taskNew"];
+// only do this stuff if we have a suicide timer
+if(DZE_SUICIDE_CANCEL_TIME > 0) then {
+    // initialize these variables
+    _done     = false;
+    _position = position player;
+    _timeLeft = DZE_SUICIDE_CANCEL_TIME;
+    _warning  = "You will commit suicide in %1 seconds. Move to cancel!";
 
-// perform conditional checks while giving the player a chance to cancel
-while{!_done} do {
-    cutText [format[_warning,_timeLeft], "PLAIN DOWN"];
-    sleep 1;
-    _timeLeft = _timeLeft - 1;
-    _weapon = (currentWeapon player);
-    if(position player select 0 != _position select 0 || position player select 1 != _position select 1) exitWith {
-        _exitWith = "Suicide Cancelled!";
-    };
-    if((isNil "_weapon") || {!(_weapon in DZE_SUICIDE_WEAPONS)}) exitWith {
-        _exitWith = "No valid guns to kill yourself with!";
-    };
-    if(DZE_SUICIDE_REQUIRE_BULLET && ((player ammo _weapon) == 0)) exitWith {
-        _exitWith = "You are out of ammunition!";
-    };
-    if(_timeLeft <= 0) then {
-        _done = true;
+    // make sure the player really knows they are about to die
+    hint format[_warning,_timeLeft];
+    taskHint [format[_warning,_timeLeft], DZE_COLOR_DANGER, "taskNew"];
+
+    // perform conditional checks while giving the player a chance to cancel
+    while{!_done} do {
+        cutText [format[_warning,_timeLeft], "PLAIN DOWN"];
+        sleep 1;
+        _timeLeft = _timeLeft - 1;
+        _weapon   = (currentWeapon player);
+        if(position player select 0 != _position select 0 || position player select 1 != _position select 1) exitWith {
+            _exitWith = "Suicide Cancelled!";
+        };
+        if((isNil "_weapon") || {!(_weapon in DZE_SUICIDE_WEAPONS)}) exitWith {
+            _exitWith = "No valid guns to kill yourself with!";
+        };
+        if(DZE_SUICIDE_REQUIRE_BULLET && ((player ammo _weapon) == 0)) exitWith {
+            _exitWith = "You are out of ammunition!";
+        };
+        _done = _timeLeft <= 0;
     };
 };
 
