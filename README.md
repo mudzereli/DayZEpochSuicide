@@ -1,6 +1,6 @@
 ##CONTENTS
 
-###SUICIDE 1.1.0
+###SUICIDE 1.2.0
 
 #####credits: original concept/code by Grafzahl/overhaul by mudzereli
 
@@ -32,5 +32,6 @@ http://imgur.com/a/Pt0lM
 -----
 
 ##Change Log
+* 1.2.0 - now you can suicide without having the handgun equipped. option to enable or disable actual weapon use (selection / firing)
 * 1.1.0 - better message handling when cancel time is 0 (instant suicide) / change default cancel time to 0
 * 1.0.0 - release

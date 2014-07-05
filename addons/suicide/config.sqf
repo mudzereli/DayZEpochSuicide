@@ -9,3 +9,6 @@ DZE_SUICIDE_REQUIRE_BULLET = true;
 
 /* this is how long the player has to cancel the suicide */
 DZE_SUICIDE_CANCEL_TIME = 0;
+
+/* if this is true then the player will select and fire the weapon */
+DZE_SUICIDE_USE_WEAPON = true;
