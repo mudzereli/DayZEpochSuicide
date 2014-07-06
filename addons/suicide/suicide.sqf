@@ -1,9 +1,10 @@
-private ["_position","_done","_timeLeft","_exitWith","_warning","_display"];
+private ["_position","_done","_timeLeft","_exitWith","_warning","_display","_weapon"];
 
 // initialize variables
+_weapon   = _this;
 _exitWith = "nil";
 _done     = false;
-     = position player;
+_position = position player;
 _timeLeft = DZE_SUICIDE_CANCEL_TIME;
 _warning  = "You will commit suicide in %1 seconds. Move to cancel!";
 
@@ -23,15 +24,15 @@ if(_timeLeft > 0) then {
 
 // perform conditional checks while giving the player a chance to cancel
 while{!_done} do {
-    cutText [format[_warning,_timeLeft], "PLAIN DOWN"];
     if(_timeLeft > 0) then {
+        cutText [format[_warning,_timeLeft], "PLAIN DOWN"];
         sleep 1;
         _timeLeft = _timeLeft - 1;
     };
-    if(position player select 0 != _position select 0 || position player select 1 != _position select 1) exitWith {
+    if((player distance _position) > 1) exitWith {
         _exitWith = "Suicide Cancelled!";
     };
-    if(!(_this in (weapons player))) exitWith {
+    if(!(_weapon in (weapons player))) exitWith {
         _exitWith = "You need the weapon to kill yourself with!";
     };
     if(DZE_SUICIDE_REQUIRE_BULLET && ((player ammo _weapon) == 0)) exitWith {
@@ -40,10 +41,6 @@ while{!_done} do {
     _done = _timeLeft <= 0;
 };
 
-if(DZE_SUICIDE_USE_WEAPON) then {
-    player selectWeapon _this;
-    sleep 3;
-};
 
 // if we didn't get an exit reason back, time to die!
 if (_exitWith == "nil") then {
@@ -51,11 +48,12 @@ if (_exitWith == "nil") then {
     taskHint[_exitWith, DZE_COLOR_SUCCESS, "taskDone"];
     hint _exitWith;
     cutText[_exitWith,"PLAIN DOWN"];
-    player playmove (["ActsPercMstpSnonWpstDnon_suicide1B","ActsPercMstpSnonWpstDnon_suicide2B"] call BIS_fnc_selectRandom);
+    player selectWeapon _weapon;
+    player switchMove "";
+    player playActionNow "stop";
+    player playMove (["ActsPercMstpSnonWpstDnon_suicide1B","ActsPercMstpSnonWpstDnon_suicide2B"] call BIS_fnc_selectRandom);
     sleep 7.5;
-    if(DZE_SUICIDE_USE_WEAPON) then {
-        player fire _this;
-    };
+    player fire _weapon;
     sleep 1;
     player setDamage 1.5;
 } else {
