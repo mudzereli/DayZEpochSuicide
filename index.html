@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dayzepochsuicide by mudzereli</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Dayzepochsuicide</h1>
+        <p>a suicide script for dayz</p>
+
+        <p class="view"><a href="https://github.com/mudzereli/DayZEpochSuicide">View the Project on GitHub <small>mudzereli/DayZEpochSuicide</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/mudzereli/DayZEpochSuicide/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/mudzereli/DayZEpochSuicide/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/mudzereli/DayZEpochSuicide">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="suicide-122" class="anchor" href="#suicide-122"><span class="octicon octicon-link"></span></a>SUICIDE 1.2.2</h1>
+
+<p><strong>credits</strong>: original concept/code by Grafzahl/overhaul by mudzereli</p>
+
+<p>Out of the box, this script adds a right click action to most pistols in the game that allows you to commit suicide.</p>
+
+<p>It's configurable, triggered from right click instead of scroll menu, and it plays randomly one of 2 animations</p>
+
+<p>For some samples of what it does, check out this <a href="http://imgur.com/a/Pt0lM" title="imgur gallery">gallery on imgur</a>:</p>
+
+<hr><h2>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features:</h2>
+
+<ul>
+<li>fully configurable</li>
+<li>right click so no accidental suicides</li>
+<li>cancel suicide by moving/etc</li>
+<li>better visual/audio cues</li>
+</ul><hr><h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<ol>
+<li><a href="https://github.com/mudzereli/DayZEpochSuicide/archive/master.zip" title="download files">download the files</a></li>
+<li>extract the <strong>addons</strong> and <strong>overwrites</strong> folder from the downloaded zip file into your <strong>mission file root</strong>
+</li>
+<li>add this line to the end of your mission file init.sqf.
+
+<ul>
+<li><code>call compile preprocessFileLineNumbers "addons\suicide\init.sqf";</code></li>
+</ul>
+</li>
+<li>edit <strong>addons\suicide\config.sqf</strong> to configure some options such as what guns it works with etc.</li>
+</ol><hr><h2>
+<a name="change-log" class="anchor" href="#change-log"><span class="octicon octicon-link"></span></a>Change Log</h2>
+
+<table>
+<thead><tr>
+<th>version</th>
+<th>change</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1.2.2</td>
+<td>better click actions build conflict detection</td>
+</tr>
+<tr>
+<td>1.2.1</td>
+<td>update for compatibility w/ new click actions build</td>
+</tr>
+<tr>
+<td>1.2.0</td>
+<td>now you can suicide without having the handgun equipped. option to enable or disable actual weapon use (selection / firing)</td>
+</tr>
+<tr>
+<td>1.1.0</td>
+<td>better message handling when cancel time is 0 (instant suicide) / change default cancel time to 0</td>
+</tr>
+<tr>
+<td>1.0.0</td>
+<td>release</td>
+</tr>
+</tbody>
+</table>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/mudzereli">mudzereli</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
